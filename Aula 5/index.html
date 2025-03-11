@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1> Semântica vs formas</h1>
+
+<h2> Negrito / Destaque</h2>
+<p> Na frase temos uma <b> parte do texto em negrito</b> usando a tag B ( não semântica)</p>
+<p> Na frase temos uma <strong> parte do texto em negrito</strong> usando a tag strong(com semâmtica)</p>
+<h2> Italico / Ênfase</h2>
+
+<p> Nesta frase vamos entrar com uma palavra em <i> itálico</i> usando a tag i (não semaântica)</p>
+<p> Nesta frase vamos entrar com uma palavra em <em> Itálico</em> usando a tag EM (com semântica)</p>
+<h2> Texto marcador</h2>
+
+<p> Aqui vamos usar um texto com destaque <mark style="background-color: green;"> de marcador de texto</mark> usando mark </p>
+<p> Aqui vamos usar um texto com destaque <mark> de marcador de texto</mark> usando mark</p>
+
+<h2> Texto grande e pequeno </h2>
+<p> Estamos trabalhando aqui com um <big> texto grande </big> e um <small> texto pequeno</small> nesta frase</p>
+
+<h2> Texto deletado</h2>
+<p> Neste paragrafo vamos trabalhar com um texto <strike> que foi excluído</strike> em uma frase</p>
+
+<h2> Texto inserido</h2>
+<p> Nesta frase vamos demonstrar como <u>destacar um texto inserido</u> na frase de forma semântica</p>
+<p> Nesta frase vamos demonstrar como <ins>destacar um texto inserido</ins> na frase de forma não semântica</p>
+
+<h2> Texto sobrescrito</h2>
+<p>Vamos demonstrar uma formula da equção do segundo grau ax<sup>2</sup>+ bx + c = 0</p>
+
+<h2> Texto subescrito</h2>
+<p> Vamos demonstrar o texto subescrito com a formula da água H<sub>2</sub>0</p> 
+
+<h2>Texto do código fonte</h2>
+<p>Neste exemplo vou demonstrar um trecho de código <br>
+    <p> inserindo um longo códico me python</p> 
+    <pre>
+    <code>
+            import numpy as np
+import pandas as pd
+
+def remove_outliers(df, column, threshold=3):
+    """
+    Remove outliers de uma coluna específica de um DataFrame com base no Z-score.
+    
+    :param df: DataFrame contendo os dados.
+    :param column: Nome da coluna onde os outliers serão removidos.
+    :param threshold: O valor do Z-score acima do qual um valor é considerado um outlier (default é 3).
+    :return: DataFrame com outliers removidos.
+    """
+    # Calcula a média e o desvio padrão da coluna
+    mean = df[column].mean()
+    std_dev = df[column].std()
+    
+    # Calcula o Z-score para cada valor
+    df['z_score'] = (df[column] - mean) / std_dev
+    
+    # Filtra os dados, mantendo apenas os valores cujo Z-score é menor que o limiar (threshold)
+    df_cleaned = df[df['z_score'].abs() <= threshold]
+    
+    # Remove a coluna 'z_score' que foi criada
+    df_cleaned = df_cleaned.drop(columns=['z_score'])
+    
+    return df_cleaned
+
+# Exemplo de uso com um DataFrame
+data = {
+    'A': [1, 2, 3, 4, 100, 6, 7, 8, 9, 10]
+}
+df = pd.DataFrame(data)
+
+df_cleaned = remove_outliers(df, 'A')
+
+print("DataFrame original:")
+print(df)
+print("\nDataFrame sem outliers:")
+print(df_cleaned)</code></pre> <br>
+
+<h2>Citações (quotation) simples</h2>
+<p> segundo Steve Jobs <q>A tecnologia move o mundo</q></p>
+
+<h2>Citações completas (livros)</h2>
+<p>Segundo Sandra Kussunoki no seu livro A dança e o ventre:</p>
+<p> <blockquote> Dados existrententes sobre intervenções cirúrgicas nos corpos comtemporâneos visando à obtenção de um <br> corpo mais próximo do padrão estético tais como lipoaspiração, próteses de slicone, entre outras, <br> comprovam essa busca obsessiva pelo ideal de perfeição, que é baseado  principalmente na magreza.</blockquote></p>
+
+<h2> Abreviações</h2>
+<p> Estamos estudando <abbr title="Sistema unico de saude">SUS</abbr> </p>
+
+<h2>Texto invertido</h2>
+Estou estudando HTML <p><bdo dir="rtl"> Estou estudando HTML</bdo></p>
+
+    
+</body>
+</html>
